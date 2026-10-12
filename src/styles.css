@@ -1,0 +1,146 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap');
+
+:root {
+  font-family: 'DM Sans', sans-serif;
+  color: #202522;
+  background: #f6f6f1;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  --page-bg: #f6f6f1;
+  --surface: #fff;
+  --surface-raised: #fdfdfb;
+  --surface-muted: #f4f6f0;
+  --ink: #202522;
+  --body-copy: #424941;
+  --muted: #858a83;
+  --muted-strong: #737a70;
+  --muted-soft: #a2a69e;
+  --green: #365d46;
+  --green-hover: #294b37;
+  --green-soft: #83947d;
+  --brand-mark-bg: #365d46;
+  --line: #eceee8;
+  --line-strong: #e6e9e1;
+  --line-soft: #f0f1ed;
+  --placeholder: #a2a69e;
+  --check: #bdc4b9;
+  --complete: #a8ada6;
+  --danger: #a5483d;
+  --shadow: #313c2610;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; min-width: 320px; min-height: 100vh; }
+button, input { font: inherit; }
+button { cursor: pointer; }
+.page-shell {
+  min-height: 100vh;
+  padding: 0 7.3%;
+  color: var(--ink);
+  background: var(--page-bg);
+  transition: color .2s ease, background-color .2s ease;
+}
+.page-shell[data-theme='dark'] {
+  color-scheme: dark;
+  --page-bg: #151b17;
+  --surface: #1e2721;
+  --surface-raised: #202a23;
+  --surface-muted: #29352d;
+  --ink: #edf2eb;
+  --body-copy: #d0d8cf;
+  --muted: #a6b0a6;
+  --muted-strong: #b5c0b5;
+  --muted-soft: #879489;
+  --green: #a3c0a4;
+  --green-hover: #b7d1b7;
+  --green-soft: #a6c09e;
+  --brand-mark-bg: #52775a;
+  --line: #344038;
+  --line-strong: #3b4940;
+  --line-soft: #303b34;
+  --placeholder: #849188;
+  --check: #829087;
+  --complete: #879189;
+  --danger: #e59a8f;
+  --shadow: #00000025;
+}
+.topbar { height: 78px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--line); }
+.brand { display: inline-flex; align-items: center; gap: 9px; color: var(--ink); font: 800 19px Manrope, sans-serif; letter-spacing: -1px; text-decoration: none; }
+.brand-mark { width: 25px; height: 25px; border-radius: 8px; display: grid; place-items: center; color: #fff; background: var(--brand-mark-bg); }
+.brand-period { color: var(--green-soft); }
+.top-actions { display: flex; align-items: center; gap: 20px; }
+.top-note { color: var(--muted-strong); font-size: 12px; letter-spacing: .01em; display: flex; align-items: center; gap: 8px; }
+.status-dot { width: 7px; height: 7px; background: #8ca487; border-radius: 50%; }
+.theme-toggle { display: inline-flex; align-items: center; justify-content: center; gap: 7px; min-height: 34px; padding: 0 11px; border: 1px solid var(--line-strong); border-radius: 8px; color: var(--body-copy); background: var(--surface); font-size: 11px; font-weight: 600; transition: background-color .2s ease, border-color .2s ease, color .2s ease; }
+.theme-toggle:hover { background: var(--surface-muted); }
+.theme-toggle:focus-visible, .add-button:focus-visible, .filter-tab:focus-visible, .clear-button:focus-visible, .check-button:focus-visible, .delete-button:focus-visible { outline: 2px solid var(--green); outline-offset: 3px; }
+.workspace { width: min(100%, 604px); margin: 0 auto; padding-top: 65px; }
+.intro { margin-bottom: 31px; }
+.eyebrow { display: flex; align-items: center; gap: 7px; color: var(--green-soft); font-size: 10px; font-weight: 700; letter-spacing: .13em; }
+.intro h1 { margin: 18px 0 12px; font: 700 clamp(38px, 6vw, 50px)/1.13 Manrope, sans-serif; letter-spacing: -2.8px; }
+.intro h1 span { color: var(--green-soft); }
+.intro-copy { margin: 0; color: var(--muted-strong); font-size: 14px; line-height: 1.65; }
+.todo-card { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; box-shadow: 0 16px 45px var(--shadow); padding: 25px 27px 0; transition: background-color .2s ease, border-color .2s ease, box-shadow .2s ease; }
+.card-heading { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 21px; }
+.card-title-row { display: flex; align-items: center; gap: 9px; color: var(--green); }
+.card-title-row h2 { margin: 0; color: var(--ink); font: 700 16px Manrope, sans-serif; letter-spacing: -.3px; }
+.task-count { margin: 6px 0 0 27px; color: var(--muted); font-size: 11px; }
+.date-chip { padding: 6px 9px; background: var(--surface-muted); color: var(--green-soft); border-radius: 6px; font-size: 9px; font-weight: 700; letter-spacing: .09em; }
+.add-form { display: flex; align-items: center; gap: 10px; height: 49px; padding: 0 6px 0 13px; border: 1px solid var(--line-strong); border-radius: 9px; background: var(--surface-raised); transition: background-color .2s ease, border-color .2s ease; }
+.add-form:focus-within { border-color: var(--green); }
+.input-plus { flex: none; color: var(--green-soft); }
+.add-form input { flex: 1; min-width: 0; height: 100%; border: 0; outline: 0; color: var(--ink); background: transparent; font-size: 12px; }
+.add-form input::placeholder { color: var(--placeholder); }
+.add-button { display: flex; align-items: center; gap: 8px; border: 0; border-radius: 6px; background: var(--green); color: #fff; padding: 9px 11px; font-size: 11px; font-weight: 600; transition: background .15s, opacity .15s; }
+.page-shell[data-theme='dark'] .add-button { color: #19231c; }
+.add-button:hover:not(:disabled) { background: var(--green-hover); }
+.add-button:disabled { opacity: .46; cursor: default; }
+.add-button span { font-size: 14px; line-height: 10px; }
+.list-toolbar { display: flex; justify-content: space-between; align-items: center; margin-top: 21px; border-bottom: 1px solid var(--line); }
+.filter-tabs { display: flex; gap: 19px; }
+.filter-tab { position: relative; border: 0; background: transparent; padding: 0 0 11px; color: var(--muted); font-size: 11px; }
+.filter-tab.selected { color: var(--green); font-weight: 700; }
+.filter-tab.selected::after { content: ''; position: absolute; bottom: -1px; left: 0; right: 0; height: 2px; background: var(--green); border-radius: 2px; }
+.tab-count { margin-left: 5px; color: var(--green-soft); font-size: 9px; }
+.clear-button { margin-bottom: 9px; padding: 0; border: 0; color: var(--muted); background: transparent; font-size: 10px; }
+.clear-button:hover { color: var(--danger); }
+.todo-list { list-style: none; margin: 0; padding: 0; min-height: 90px; }
+.todo-row { display: flex; align-items: center; min-height: 51px; gap: 12px; border-bottom: 1px solid var(--line-soft); }
+.check-button, .delete-button { display: grid; place-items: center; flex: none; padding: 0; border: 0; background: transparent; }
+.check-button { color: var(--check); }
+.check-button:hover { color: var(--green); }
+.checked { width: 19px; height: 19px; display: grid; place-items: center; border-radius: 50%; background: #789176; color: #fff; }
+.todo-title { flex: 1; min-width: 0; color: var(--body-copy); font-size: 12px; overflow-wrap: anywhere; }
+.is-complete .todo-title { color: var(--complete); text-decoration: line-through; }
+.delete-button { color: var(--check); opacity: 0; transition: opacity .15s, color .15s; }
+.todo-row:hover .delete-button, .delete-button:focus-visible { opacity: 1; }
+.delete-button:hover { color: var(--danger); }
+.empty-state { display: flex; align-items: center; justify-content: center; gap: 10px; min-height: 89px; color: var(--muted); font-size: 11px; text-align: center; }
+.empty-icon { width: 26px; height: 26px; display: grid; place-items: center; border-radius: 50%; color: var(--green-soft); background: var(--surface-muted); }
+.card-footer { display: flex; justify-content: space-between; align-items: center; margin: 0 -27px; padding: 15px 27px; color: var(--muted); font-size: 10px; }
+.footer-spark { color: var(--green-soft); font-size: 14px; }
+.page-footer { padding: 27px 0 34px; color: var(--muted-soft); text-align: center; font-size: 9px; font-weight: 600; letter-spacing: .13em; }
+.page-footer span { padding: 0 5px; color: var(--green-soft); }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; clip-path: inset(50%); }
+
+@media (max-width: 600px) {
+  .page-shell { padding: 0 20px; }
+  .topbar { height: 65px; }
+  .top-actions { gap: 9px; }
+  .top-note { font-size: 10px; }
+  .workspace { padding-top: 44px; }
+  .intro h1 { letter-spacing: -2px; }
+  .todo-card { padding: 21px 18px 0; }
+  .card-footer { margin: 0 -18px; padding: 14px 18px; }
+  .add-form { gap: 7px; padding-left: 10px; }
+  .add-form input { font-size: 11px; }
+  .add-button { padding: 9px; }
+  .filter-tabs { gap: 14px; }
+}
+
+@media (max-width: 420px) {
+  .top-note { display: none; }
+}
+
+@media (hover: none) { .delete-button { opacity: 1; } }
